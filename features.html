@@ -74,7 +74,21 @@
                         <p class="title">Building lightweight self-signed certificates, instead of X.509</p>
                         <p class="subtitle">Identify uniquely a user of a system or an application that is running in the system.</p>
                         <div class="content">
-                            <p>Prove that a user or application is genuinely who that person or what that application claims to be.</p>
+                            <p>The Black Lager network has public-private keys stored client-side to ensure communication is encrypted.
+                                The design has to accommodate the hardware storage limitation we have on our ESP32 radio devices. Such devices were created with a design goal of being low power consumption and low execution/storage power. We had to change our project design a few times to work around the hardware limitations.
+We had to adapt protobuff as the data communication format for our project. Protobuff was used by Meshtastic therefore we had to take it into consideration and convert our data storage to protobuff.
+<br><br>
+<p class="subtitle">cipherSuite</p>
+A cipher suite whose responsible for key storage, key assignments and communication directly with radio devices via serial interfaces
+<br><br>
+<p class="subtitle">Serialinterface</p>
+A communication module to serve cipher suite and radio devices. Built on top of Meshtastic python CLI to establish connection via serial (cable) interface.
+<br><br>
+<p class="subtitle">Persona</p>
+A radio/device is a persona who has an identity defined by information of such a radio device. Each persona is unique in the system and have its own public/private key pairs as well as its peers public keys
+<br>
+
+                            </p>
                         </div>
                     </article>
                 </div>
