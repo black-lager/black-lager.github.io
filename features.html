@@ -63,30 +63,61 @@
                 </div>
             </div>
         </section>
-            <div class="intro column is-8 is-offset-2">
-                <h2 class="title">Trusted messaging.
-                    </h2><br>
-                <p class="subtitle">We are primarily focused upon trusted secure structed messaging in a peer to peer manner.</p>
-            </div>
             <div class="sandbox">
                 <div class="tile is-parent is-shady">
                     <article class="tile is-child notification is-white">
-                        <p class="title">Building lightweight self-signed certificates, instead of X.509</p>
-                        <p class="subtitle">Identify uniquely a user of a system or an application that is running in the system.</p>
+                        <p class="title">Overview of Enhanced Security Features</p>
+                        <p class="subtitle">The Black Lager project now allows you to do the following on top of the Meshtastic infrastructure.</p>
                         <div class="content">
-                            <p>The Black Lager network has public-private keys stored client-side to ensure communication is encrypted.
+                            <p>
+                                <ul>
+                                <li>Create lightweight public-key certificates and digital signatures with the Ed25519 algorithm.</li>
+                                <li>Generate a persona with a name and public/private key pair using the Python application.</li>
+                                <li>Send and verify signed text messages with owned and peer personas stored on the client-side.</li>
+                                <li>Digital signature scheme uses SHA-512 hashing and Curve25519 elliptic-curve cryptography.</li>
+                                </ul>
+                                <br><br>
+                                <p class="subtitle"><b>Design Considerations</b></p>
                                 The design has to accommodate the hardware storage limitation we have on our ESP32 radio devices. Such devices were created with a design goal of being low power consumption and low execution/storage power. We had to change our project design a few times to work around the hardware limitations.
-We had to adapt protobuff as the data communication format for our project. Protobuff was used by Meshtastic therefore we had to take it into consideration and convert our data storage to protobuff.
-<br><br>
-<p class="subtitle">cipherSuite</p>
-A cipher suite whose responsible for key storage, key assignments and communication directly with radio devices via serial interfaces
-<br><br>
-<p class="subtitle">Serialinterface</p>
-A communication module to serve cipher suite and radio devices. Built on top of Meshtastic python CLI to establish connection via serial (cable) interface.
-<br><br>
-<p class="subtitle">Persona</p>
-A radio/device is a persona who has an identity defined by information of such a radio device. Each persona is unique in the system and have its own public/private key pairs as well as its peers public keys
-<br>
+                                We had to adapt protobuff as the data communication format for our project. Protobuff was used by Meshtastic therefore we had to take it into consideration and convert our data storage to protobuff. 
+                                The figure below shows our design. To flash a radio device with the Black Lager firmware, please visit this page.
+
+                                <figure class="mesh">
+                                    <center><img src="images/architecture_diagram.drawio.png" width="800" height="200" alt="Description1"></center>
+                                </figure>
+                                <br><br><br>
+                                
+                                <p class="subtitle"><b>Protobuf Persona</b></p>
+                                We modified the protobuf structure of the Persona so that it provides the infrastructure needed for Black Lager to support
+                                public/private key pairs using the Python application. The figure below shows what fields the Black Lager  The compile instructions for the Protobufs can be found here.
+
+                                <figure class="mesh">
+                                    <center><img src="images/proto.png" width="500" height="200" alt="Description1"></center>
+                                </figure>
+                                <br><br><br>
+                                <p class="subtitle"><b>Key Generation and Broadcast</b></p>
+
+                                <figure class="mesh">
+                                    <center><img src="images/keys.png" width="1000" height="200" alt="Description1"></center>
+                                </figure>
+                                The above figure visualizes the design of how the the key generation and broadcast is handled by Black Lager. 
+
+                                <br><br><br>
+                                <p class="subtitle"><b>Digital Signatures and Verification</b></p>
+
+                                <figure class="mesh">
+                                    <center><img src="images/dig_sigs.png" width="1000" height="200" alt="Description1"></center>
+                                </figure>
+                                The above figure visualizes the design of how the messages are digitally signed and verified by Black Lager. 
+
+                                <br><br><br>
+                                <p class="subtitle"><b>Meshwatch</b></p>
+                                A communication module to serve cipher suite and radio devices. Built on top of Meshtastic python CLI to establish connection via serial (cable) interface.
+                                The instructions to run Meshwatch can be found here. 
+                                <br><br><br>
+                                <p class="subtitle"><b>Future Plans</b></p>
+                                The public key certificates and corresponding Python library implemented provide message authentication and can be extended for further security enhancements. Implementing the Elliptic-curve Diffie-Hellman key agreement protocol would allow two users to compute a shared secret key to use in symmetric encryption of text messages. A possible limitation is US government regulation on cryptography.
+                                <br>
 
                             </p>
                         </div>
