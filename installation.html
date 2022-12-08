@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Black Lager</title>
+        <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!-- Bulma Version 0.9.0-->
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    </head>
+    <body>
+        <section class="hero is-info is-medium is-bold">
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a class="navbar-item" href="../">
+                                <img src="./images/black-lager-logo.png" width="35" height="35" alt="Logo">
+                            </a>
+                            <span class="navbar-burger burger" data-target="navbarMenu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
+                        <div id="navbarMenu" class="navbar-menu">
+                            <div class="navbar-end">
+                                <div class="tabs is-right">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="installation.html">Installation</a></li>
+                                        <li><a href="hardware.html">Hardware</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                    <span class="navbar-item">
+                                        <a class="button is-white is-outlined" href="https://github.com/black-lager">
+                                            <span class="icon">
+                                                <i class="fa fa-github"></i>
+                                            </span>
+                                            <span>View Code</span>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title">
+                    Installation Guides 
+                    </h1>
+                    <h2 class="subtitle">
+                        Instructions for how to set up Black Lager
+                    </h2>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+            <div class="intro column is-8 is-offset-2">
+                    <p class="title">Components of Black Lager</p>
+                    <p class="subtitle">You will need the following parts to use the Black Lager network.</p>
+                    <div class="content">
+                        <p>
+                            <ul>
+                            <li>LoRa radio running the Black Lager firmware</li>
+                            <li>The Black Lager Messaging client</li>
+                            </ul>
+                            <br>
+                            <p class="subtitle"><b>Supported Hardware</b></p>
+                            <ul>
+                            <li>LILYGO Lora v2.1-1.6</li>
+                            <li>LILYGO T-Beam</li>
+                            <li>Note: Other models listed <a href="https://meshtastic.org/docs/supported-hardware">here</a> may also work, but they have not been tested with the Black Lager firmware or application</li>
+                            </ul>
+                            <br>
+                            <p class="subtitle"><b>Flashing Radio Device with Black Lager Firmware</b></p>
+                            <b>Install Prerequisite Software</b><br>
+                            Python3 and pip are required for Black-Lager. Check if you have python3 and pip installed with the following command, if not please install them.
+                            <br><br>
+                            <code>python3 --version</code><br><br>
+                            <code>pip3 --version</code><br><br>
+                            To install esptool<br><br>
+                            
+                            <code>pip3 install --upgrade esptool</code><br><br>
+                            
+                            To test if esptool is working<br><br>
+                            
+                            <code>esptool chip_id</code><br><br>
+                            
+                            You should see a result similar to this:<br><br>
+                            <code>mydir$ esptool chip_id<br>
+                            esptool.py v2.6<br>
+                            Found 2 serial ports<br>
+                            Serial port /dev/ttyUSB0<br>
+                            Connecting....<br>
+                            Detecting chip type... ESP32<br>
+                            Chip is ESP32D0WDQ6 (revision 1)<br>
+                            Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None<br>
+                            MAC: 24:6f:28:b5:36:71<br>
+                            Uploading stub...<br>
+                            Running stub...<br>
+                            Stub running...<br>
+                            Warning: ESP32 has no Chip ID. Reading MAC instead.<br>
+                            MAC: 24:6f:28:b5:36:71<br>
+                            Hard resetting via RTS pin...</code>
+                            <br><br>
+                            Next step is to locate the firmware file you have downloaded, and open the directory in terminal. Run the code below to flash the firmware on your device.
+                            
+                            <br><br>
+                            <code>bin/device-install.sh -f FIRMWARE_PATH.bin</code>
+
+                            <br><br><br>
+                            
+                            <p class="subtitle"><b>Messaging Client</b></p>
+                            To install the Black Lager messaging client run <code>pip install blacklager</code>.
+                            
+                            <br><br>
+                        </p>
+                    </div>
+            </div>
+        </div>
+    </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <p>
+                        <a class="icon" href="https://github.com/black-lager">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </p>
+                    <div class="control level-item">
+                        <a href="https://github.com/black-lager">
+                            <div class="tags has-addons">
+                                <span class="tag is-dark">Black Lager</span>
+                                <span class="tag is-info">GPL-3.0 License</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <script src="../js/bulma.js"></script>
+        </footer>
+    </body>
+</html>
