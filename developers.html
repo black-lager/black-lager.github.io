@@ -34,7 +34,7 @@
                                     <ul>
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="installation.html">Installation</a></li>
-                                        <li><a href="hardware.html">Hardware</a></li>
+                                        <li><a href="developers.html">Developers</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                     <span class="navbar-item">
@@ -54,43 +54,26 @@
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <h1 class="title">
-                    Installation Guides 
+                    Developer Guides 
                     </h1>
                     <h2 class="subtitle">
-                        Instructions for installations and builds for all componenets of Black Lager
+                        Instructions for how to build components of the Black Lager project
                     </h2>
                 </div>
             </div>
         </section>
         <div class="container">
             <div class="intro column is-8 is-offset-2">
-                    <p class="title">Components of the Black Lager project</p>
-                    <p class="subtitle">You will need the following two componenets to run the Black Lager project.</p>
-                    <div class="content">
-                        <p>
-                            <ul>
-                            <li>LoRa radio running the Black Lager firmware</li>
-                            <li>The Black Lager Messaging client</li>
-                            </ul>
-                            <br><br>
-                            <p class="subtitle"><b>Flashing Radio Device with Black Lager Firmware</b></p>
-                            Use PlatformIO to build a custom version of the firmware for the tlora-v2-1-1.6 (small radio).
-                            <br><br>
-                            Then use Meshtastic’s command line flasher application and put the custom firmware you built as the argument to the shell script
-                            <br><br>
-                            To flash, use the device-install.sh script by runnning:
-                            <br><br>
-                            bin/device-install.sh -f FIRMWARE_PATH.bin
-
-                            <br><br><br>
-                            
-                            <p class="subtitle"><b>Protobufs</b></p>
-                            Run pip install blacklager .
-                            All protocol buffer messages are defined in the central protobuf repository (link). In the Python and firmware repositories,
-                            there are Github actions defined called update Protobufs, which will pull the latest changes from the Protobuf repository and 
-                            compile them.
-                            
-                        </p>
+                    <br>
+                    <p class="subtitle"><b>Build Firmware</b></p>
+                    If you would like to build a customized version of the device firmware  please follow the instructions <a href="https://meshtastic.org/docs/development/firmware/build">here</a>.
+                    This will allow you to develop on top of and customize the Meshtastic device firmware.
+                    <br><br>
+                    <p class="subtitle"><b>Protobufs</b></p>
+                        All Protocol buffer messages are defined in the central protobuf repository (<a href="https://github.com/black-lager/protobufs">link here</a>). In the Python and firmware repositories,
+                        there are Github actions defined called "Update Protobufs", which will pull the latest changes from the Protobuf repository and 
+                        compile them.
+                    </p>
                     </div>
             </div>
         </div>
