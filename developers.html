@@ -57,71 +57,39 @@
                     Installation Guides 
                     </h1>
                     <h2 class="subtitle">
-                        Instructions for how to set up Black Lager
+                        Instructions for installations and builds for all componenets of Black Lager
                     </h2>
                 </div>
             </div>
         </section>
         <div class="container">
             <div class="intro column is-8 is-offset-2">
-                    <p class="title">Components of Black Lager</p>
-                    <p class="subtitle">You will need the following parts to use the Black Lager network.</p>
+                    <p class="title">Components of the Black Lager project</p>
+                    <p class="subtitle">You will need the following two componenets to run the Black Lager project.</p>
                     <div class="content">
                         <p>
                             <ul>
                             <li>LoRa radio running the Black Lager firmware</li>
                             <li>The Black Lager Messaging client</li>
                             </ul>
-                            <br>
-                            <p class="subtitle"><b>Supported Hardware</b></p>
-                            <ul>
-                            <li>LILYGO Lora v2.1-1.6</li>
-                            <li>LILYGO T-Beam</li>
-                            <li>Note: Other models listed <a href="https://meshtastic.org/docs/supported-hardware">here</a> may also work, but they have not been tested with the Black Lager firmware or application</li>
-                            </ul>
-                            <br>
+                            <br><br>
                             <p class="subtitle"><b>Flashing Radio Device with Black Lager Firmware</b></p>
-                            <b>Install Prerequisite Software</b><br>
-                            Python3 and pip are required for Black-Lager. Check if you have python3 and pip installed with the following command, if not please install them.
+                            Use PlatformIO to build a custom version of the firmware for the tlora-v2-1-1.6 (small radio).
                             <br><br>
-                            <code>python3 --version</code><br><br>
-                            <code>pip3 --version</code><br><br>
-                            To install esptool<br><br>
-                            
-                            <code>pip3 install --upgrade esptool</code><br><br>
-                            
-                            To test if esptool is working<br><br>
-                            
-                            <code>esptool chip_id</code><br><br>
-                            
-                            You should see a result similar to this:<br><br>
-                            <code>mydir$ esptool chip_id<br>
-                            esptool.py v2.6<br>
-                            Found 2 serial ports<br>
-                            Serial port /dev/ttyUSB0<br>
-                            Connecting....<br>
-                            Detecting chip type... ESP32<br>
-                            Chip is ESP32D0WDQ6 (revision 1)<br>
-                            Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None<br>
-                            MAC: 24:6f:28:b5:36:71<br>
-                            Uploading stub...<br>
-                            Running stub...<br>
-                            Stub running...<br>
-                            Warning: ESP32 has no Chip ID. Reading MAC instead.<br>
-                            MAC: 24:6f:28:b5:36:71<br>
-                            Hard resetting via RTS pin...</code>
+                            Then use Meshtastic’s command line flasher application and put the custom firmware you built as the argument to the shell script
                             <br><br>
-                            Next step is to locate the firmware file you have downloaded, and open the directory in terminal. Run the code below to flash the firmware on your device.
-                            
+                            To flash, use the device-install.sh script by runnning:
                             <br><br>
-                            <code>bin/device-install.sh -f FIRMWARE_PATH.bin</code>
+                            bin/device-install.sh -f FIRMWARE_PATH.bin
 
                             <br><br><br>
                             
-                            <p class="subtitle"><b>Messaging Client</b></p>
-                            To install the Black Lager messaging client run <code>pip install blacklager</code>.
+                            <p class="subtitle"><b>Protobufs</b></p>
+                            Run pip install blacklager .
+                            All protocol buffer messages are defined in the central protobuf repository (link). In the Python and firmware repositories,
+                            there are Github actions defined called update Protobufs, which will pull the latest changes from the Protobuf repository and 
+                            compile them.
                             
-                            <br><br>
                         </p>
                     </div>
             </div>
