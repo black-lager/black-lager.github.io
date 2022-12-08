@@ -69,20 +69,21 @@
                     <div class="content">
                         <p>
                             <ul>
-                            <li>Radios running the Black Lager firmware.</li>
-                            <li> a persona with a name and public/private key pair using the Python application.</li>
-                            <li>Send and verify signed text messages with owned and peer personas stored on the client-side.</li>
-                            <li>Sign messages with the Ed25519 public-key signature system using SHA-512 hashing and Curve25519 elliptic-curve cryptography.</li>
+                            <li>LoRa radio running the Black Lager firmware</li>
+                            <li>The Meshtastic Python client</li>
+                            <li>The Black Lager Messaging client</li>
+                            <li>A compiled Black Lager Protobuf</li>
                             </ul>
                             <br><br>
-                            <p class="subtitle"><b>Design Considerations</b></p>
-                            The design has to accommodate the hardware storage limitation we have on our ESP32 radio devices. Such devices were created with a design goal of being low power consumption and low execution/storage power. We had to change our project design a few times to work around the hardware limitations.
-                            We had to adapt protobuff as the data communication format for our project. Protobuff was used by Meshtastic therefore we had to take it into consideration and convert our data storage to protobuff. 
-                            The figure below shows our design. To flash a radio device with the Black Lager firmware, please visit this page, <a href="build.html">Build Instructions</a>.
+                            <p class="subtitle"><b>Flashing Radio Device with Black Lager Firmware</b></p>
+                            Use PlatformIO to build a custom version of the firmware for the tlora-v2-1-1.6 (small radio).
+                            <br><br>
+                            Then use Meshtastic’s command line flasher application and put the custom firmware you built as the argument to the shell script
+                            <br><br>
+                            To flash, use the device-install.sh script.
+                            <br><br>
+                            bin/device-install.sh -f FIRMWARE_PATH.bin
 
-                            <figure class="mesh">
-                                <center><img src="images/architecture_diagram.drawio.png" width="800" height="200" alt="Description1"></center>
-                            </figure>
                             <br><br><br>
                             
                             <p class="subtitle"><b>Protobuf Persona</b></p>
